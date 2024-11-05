@@ -1,17 +1,21 @@
 #include<iostream>
 using namespace std;
+int col=12;
 bool endgame(char arr[][3]){
     int j=1;
-    for(int i=0;i<2;i++){
+    for(int i=0;i<2;i++){  //first row
         if(arr[0][i]==arr[0][i+1]){
             j++;
+
         }
     }
     if(j==3){
         return true;
     }
+
+
     j=1;
-    for(int i=0;i<2;i++){
+    for(int i=0;i<2;i++){ //first column
         if(arr[i][0]==arr[i+1][0]){
             j++;
         }
@@ -20,8 +24,10 @@ bool endgame(char arr[][3]){
         return true;
     }
     
+
+
     j=1;
-    for(int i=0;i<2;i++){
+    for(int i=0;i<2;i++){  //last column
         if(arr[i][2]==arr[i+1][2]){
             j++;
         }
@@ -29,9 +35,11 @@ bool endgame(char arr[][3]){
     if(j==3){
         return true;
     }
-    j=1;
 
-    for(int i=0;i<2;i++){
+
+
+    j=1;
+    for(int i=0;i<2;i++){ //last row
         if(arr[2][i]==arr[2][i+1]){
             j++;
         }
@@ -40,19 +48,20 @@ bool endgame(char arr[][3]){
         return true;
     }
 
-    if(arr[0][1]==arr[1][1]==arr[2][1]){
+
+
+    if(arr[0][1]==arr[1][1] && arr[1][1]==arr[2][1]){ //second column
         return true;
     }
 
-    if(arr[1][0]==arr[1][1]==arr[1][2]){
+    if(arr[1][0]==arr[1][1] && arr[1][1]==arr[1][2]){ //second row
         return true;
     }
     //diagonal ki baari
-  
-    if(arr[0][0]==arr[1][1]==arr[2][2]){
+    if((arr[0][0]==arr[1][1]) && (arr[1][1]==arr[2][2])){
         return true;
     }
-    if(arr[2][0]==arr[1][1]==arr[0][2]){
+    if((arr[2][0]==arr[1][1]) && (arr[1][1]==arr[0][2])){
         return true;
     }
     return false;
@@ -233,10 +242,10 @@ void adding(char arr[][3],bool &zero,bool hidden[][3]){
     }
 }
 int main(){
-    cout<<"----->WELCOME TO ZERO KATAA<-----"<<endl;
-    cout<<endl;
     char l='Y';
     while(l=='Y'){
+    cout<<"--->WELCOME TO ZERO KATAA<---"<<endl;
+    cout<<endl;
     char arr[3][3];
     bool hidden[3][3];
     int x=49;
@@ -272,6 +281,8 @@ int main(){
     }
     }
     cout<<"WANNA START NEW GAME?(Y/N)";
-    cin>>l;}
+    cin>>l;
+    cout<<endl;
+    cout<<endl;}
     cout<<"BYE BYE"<<endl;
 }
